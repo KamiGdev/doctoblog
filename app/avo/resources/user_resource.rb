@@ -12,5 +12,6 @@ class UserResource < Avo::BaseResource
   field :role, as: :select, enum: ::User.roles
   field :firstname, as: :text
   field :lastname, as: :text
+  field :password, as: :password
   # add fields here
 end

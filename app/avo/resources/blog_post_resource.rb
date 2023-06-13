@@ -7,11 +7,11 @@ class BlogPostResource < Avo::BaseResource
 
   field :id, as: :id
   # Fields generated from the model
+  field :illustration, as: :file
   field :title, as: :text
   field :subtitle, as: :text
   field :body, as: :textarea
   field :user_id, as: :number
-  field :illustration, as: :file
   field :user, as: :belongs_to
   # add fields here
 end
