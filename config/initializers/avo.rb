@@ -1,7 +1,7 @@
 # For more information regarding these settings check out our docs https://docs.avohq.io
 Avo.configure do |config|
   ## == Routing ==
-  config.root_path = '/avo'
+  config.root_path = '/admin'
 
   # Where should the user be redirected when visting the `/avo` url
   # config.home_path = nil
@@ -17,8 +17,12 @@ Avo.configure do |config|
 
   ## == Authentication ==
   # config.current_user_method = {}
-  # config.authenticate_with do
-  # end
+  config.authenticate_with do
+    unless current_user && current_user.admin? #mdp in seeds file:
+      flash[:alert] = "You have to be an administrator to access the admin panel"
+      redirect_to '/'
+    end
+  end
 
   ## == Authorization ==
   # config.authorization_methods = {
