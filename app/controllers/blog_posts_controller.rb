@@ -1,6 +1,7 @@
 class BlogPostsController < ApplicationController
   before_action :set_blog_post, only: %i[ show edit update destroy ]
   before_action :authenticate_user!
+  before_action :writer_verification, except: %i[ index show ]
 
   # GET /blog_posts or /blog_posts.json
   def index
@@ -22,6 +23,7 @@ class BlogPostsController < ApplicationController
 
   # POST /blog_posts or /blog_posts.json
   def create
+
     @blog_post = BlogPost.new(blog_post_params)
 
     respond_to do |format|
@@ -68,4 +70,13 @@ class BlogPostsController < ApplicationController
     def blog_post_params
       params.require(:blog_post).permit(:illustration, :title, :subtitle, :body, :user_id)
     end
+
+    def writer_verification
+      if !current_user.writer?
+        flash.alert = "You must be authorize to access"
+        redirect_to blog_posts_path
+      end
+    end
+
+
 end
