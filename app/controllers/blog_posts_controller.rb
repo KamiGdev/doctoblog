@@ -2,13 +2,11 @@ class BlogPostsController < ApplicationController
   before_action :set_blog_post, only: %i[ show edit update destroy ]
   before_action :authenticate_user!
   before_action :writer_verification, except: %i[ index show ]
+  before_action :only_writer, only: %i[ edit update ]
 
   # GET /blog_posts or /blog_posts.json
   def index
     @blog_posts = BlogPost.all
-      if current_user.writer?
-      @blog_posts = current_user.blog_posts
-      end
   end
 
   # GET /blog_posts/1 or /blog_posts/1.json
@@ -22,6 +20,7 @@ class BlogPostsController < ApplicationController
 
   # GET /blog_posts/1/edit
   def edit
+
   end
 
   # POST /blog_posts or /blog_posts.json
@@ -81,5 +80,11 @@ class BlogPostsController < ApplicationController
       end
     end
 
+    def only_writer
+      if @blog_post.user != current_user
+        flash.alert = "You are not able to access this post"
+        redirect_to blog_posts_path
+      end
+    end
 
 end
