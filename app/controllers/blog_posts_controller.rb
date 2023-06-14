@@ -6,6 +6,9 @@ class BlogPostsController < ApplicationController
   # GET /blog_posts or /blog_posts.json
   def index
     @blog_posts = BlogPost.all
+      if current_user.writer?
+      @blog_posts = current_user.blog_posts
+      end
   end
 
   # GET /blog_posts/1 or /blog_posts/1.json
