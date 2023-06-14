@@ -1,8 +1,6 @@
 <div id="<%= dom_id blog_post %>">
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Illustration:</strong>
-    <%= link_to blog_post.illustration.filename, blog_post.illustration if blog_post.illustration.attached? %>
-  </p>
+  
+    <%= image_tag blog_post.illustration %>
 
   <p class="my-5">
     <strong class="block font-medium mb-1">Title:</strong>
@@ -21,7 +19,7 @@
 
   <p class="my-5">
     <strong class="block font-medium mb-1">User:</strong>
-    <%= blog_post.user_id %>
+    <%= blog_post.user.lastname %>
   </p>
 
   <% if action_name != "show" %>
