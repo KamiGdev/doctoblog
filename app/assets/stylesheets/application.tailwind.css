@@ -11,3 +11,28 @@
 }
 
 */
+
+@layer base {
+  h1 {
+      @apply text-5xl;
+  }
+
+  h2 {
+      @apply text-3xl;
+  }
+
+  h3 {
+      @apply sm:text-base md:text-xl lg:text-2xl;
+  }
+
+  h4 {
+      @apply sm:text-sm md:text-base lg:text-xl;
+  }
+
+  p {
+      @apply sm:text-sm md:text-base;
+  }
+
+}
+
+

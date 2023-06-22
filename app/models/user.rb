@@ -7,5 +7,4 @@ class User < ApplicationRecord
   attribute :role, :integer, default: 0
   has_many :blog_posts, dependent: :destroy
   has_many :comments, dependent: :destroy
-  has_many :blog_posts, dependent: :destroy
 end

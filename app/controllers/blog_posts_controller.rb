@@ -9,13 +9,16 @@ class BlogPostsController < ApplicationController
     @blog_posts = BlogPost.all
   end
 
-  # GET /blog_posts/1 or /blog_posts/1.json
+  # WE ADD this : GET /blog_posts/1 or /blog_posts/1.json
   def show
+    @blog_post = BlogPost.find(params[:id])
+    @new_comment = Comment.new
   end
 
   # GET /blog_posts/new
   def new
     @blog_post = BlogPost.new
+
   end
 
   # GET /blog_posts/1/edit
@@ -73,6 +76,8 @@ class BlogPostsController < ApplicationController
       params.require(:blog_post).permit(:illustration, :title, :subtitle, :body, :user_id)
     end
 
+
+    # WE ADD writer_verification METHOD
     def writer_verification
       if !current_user.writer?
         flash.alert = "You must be authorize to access"
@@ -80,6 +85,7 @@ class BlogPostsController < ApplicationController
       end
     end
 
+    # WE ADD only_writer METHOD
     def only_writer
       if @blog_post.user != current_user
         flash.alert = "You are not able to access this post"

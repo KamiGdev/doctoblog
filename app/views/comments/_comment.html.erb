@@ -1,0 +1,14 @@
+
+<div>
+    <p><%= comment.id %></p>
+    <small>by <%= comment.user.email %>
+        <p>Posted <%= time_ago_in_words(comment.created_at) %> ago</p>
+    </small>
+
+
+    <% if current_user == comment.user || current_user.admin? %>
+      <%= button_to 'Destroy this comment', blog_post_comments_path(comment.blog_post) + "/#{comment.id}", method: :delete, class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 font-medium" %>
+    <% end %>
+</div>
+
+<hr>

@@ -1,5 +1,5 @@
 class BlogPostResource < Avo::BaseResource
-  self.title = :id
+  self.title = :title
   self.includes = []
   # self.search_query = -> do
   #   scope.ransack(id_eq: params[:q], m: "or").result(distinct: false)

@@ -1,7 +1,18 @@
 <div class="mx-auto md:w-2/3 w-full flex">
-  <div class="mx-auto">
+
+  <div class="mx-auto py-12">
+    <%= link_to "🔙 Back to posts", blog_posts_path, class: "text-beige font-bold underline" %>
 
     <%= render @blog_post %>
+
+    <div class="container flex flex-col">
+      <h3 class="text-bold">Post your comment</h3>
+      <%= render partial: 'comments/form' %>
+
+      <%= render @blog_post.comments %>
+    </div>
+
+
 
    <% if current_user.writer? %>
     <%= link_to 'Edit this blog_post', edit_blog_post_path(@blog_post), class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
@@ -10,6 +21,6 @@
     </div>
     <% end %>
 
-    <%= link_to 'Back to blog_posts', blog_posts_path, class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+    <%= link_to 'Back to posts', blog_posts_path, class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
   </div>
 </div>

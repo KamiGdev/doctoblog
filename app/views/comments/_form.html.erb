@@ -1,0 +1,6 @@
+<div class="flex flex-col space-x-6">
+    <%= form_for [@blog_post, @new_comment] do |f| %>
+        <%= f.text_area :content %>
+        <%= f.submit "Send" %>
+    <% end %>
+</div>

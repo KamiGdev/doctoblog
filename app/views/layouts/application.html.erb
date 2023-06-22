@@ -1,32 +1,73 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Doctoblog</title>
+    <title>Doctoblog<%= yield :title %></title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <!-- Google fonts- -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:ital,wght@0,200;0,400;0,600;1,400&family=Yantramanav:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CDN -->
     <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
+
+    <!-- Remix icon CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.2.0/fonts/remixicon.css" rel="stylesheet">
   </head>
 
-  <body>
+  <body class="bg-azul">
+
     <main class="container mx-auto mt-28 px-5">
 
-    <% if notice.present? %>
-      <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
-    <% end %>
+      <!-- TO DO Navbar-->
+      <%# <nav class="fixed h-20 top-0 z-50 w-full bg-federalblue text-beige flex justify-between py-5 px-8 shadow [&>div]:grid [&>div]:grid-flow-col [&>div]:gap-36 [&>div]:items-center [&>div]:px-5 lg:[&>div]:px-16"> %>
 
-    <% if alert.present? %>
-      <p class="py-2 px-3 bg-red-50 mb-5 text-red-500 font-medium rounded-lg inline-block" id="alert"><%= alert %></p>
-    <% end %>
 
-     <%if user_signed_in? %>
-      <%= button_to "logout", destroy_user_session_path, method: :delete  %>
-     <%end%>
+        <%# <div>
+          <%= link_to image_tag('logo.png'), root_path, class: "w-16 lg:w-20" %>
+        <%# </div> %>
 
-      <%= yield %>
+        <%# <div>
+          <span>Welcome on Doctoblog, internal blog of L.A. US Hospital</span>
+        </div> %>
+
+        <%# <div>
+          <%= link_to "Login ✅ ", root_path, class: '' %>
+          <%# <%= link_to "Signup 🚀", contact_path, class: '' %>
+        <%# <div> %>
+      <%# </nav> %>
+
+
+      <div class="relative flex flex-col items-center text-center">
+        <div class="fixed z-50 top-28">
+          <% if notice.present? %>
+            <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
+          <% end %>
+
+          <% if alert.present? %>
+            <p class="py-2 px-3 bg-red-50 mb-5 text-red-500 font-medium rounded-lg inline-block" id="alert"><%= alert %></p>
+          <% end %>
+
+          <%if user_signed_in? %>
+          <%= button_to "logout", destroy_user_session_path, method: :delete  %>
+          <%end%>
+        </div>
+
+      </div>
+
+
+      <div class="pt-24">
+        <%= yield %>
+      </div>
+
+
+      <!-- Footer-->
+        <%= render partial: 'static_pages/footer' %>
 
 
     </main>

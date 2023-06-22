@@ -7,8 +7,8 @@ class CommentResource < Avo::BaseResource
 
   field :id, as: :id
   # Fields generated from the model
-  field :content, as: :textarea
-  field :user, as: :text
-  field :blog_post, as: :text
+  field :content, as: :text
+  field :user, as: :belongs_to
+  field :blog_post, as: :belongs_to
   # add fields here
 end
