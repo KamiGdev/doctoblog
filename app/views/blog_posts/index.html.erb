@@ -2,6 +2,12 @@
 
   <div class="flex justify-between items-center">
     <h1 class="font-bold text-4xl">Blog posts</h1>
+    <%= search_form_for @q do |f| %>
+      <%#= f.label :title_or_subtitle_or_body_cont %>
+      <%= f.search_field :title_or_subtitle_or_body_cont %>
+      <%= f.submit %>
+    <% end %>
+
     <%= paginate @blog_posts %>
 
     <%if current_user.writer? %>

@@ -78,3 +78,4 @@ end
 gem "devise"
 gem "avo"
 gem 'kaminari'
+gem 'ransack'

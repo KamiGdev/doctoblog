@@ -6,7 +6,8 @@ class BlogPostsController < ApplicationController
 
   # GET /blog_posts or /blog_posts.json
   def index
-    @blog_posts = BlogPost.page params[:page]
+    @q = BlogPost.ransack(params[:q])
+    @blog_posts = @q.result(distinct: true).page params[:page]
   end
 
   # WE ADD this : GET /blog_posts/1 or /blog_posts/1.json
