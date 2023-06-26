@@ -12,6 +12,7 @@
 
 */
 
+
 @layer base {
   h1 {
       @apply text-5xl;
@@ -36,3 +37,10 @@
 }
 
 
+form .actions {
+  @apply flex flex-col items-center;
+}
+
+form input[type="submit"] {
+  @apply bg-white p-4 mt-2 m-auto rounded text-blue-500 hover:text-blue-700;
+}
