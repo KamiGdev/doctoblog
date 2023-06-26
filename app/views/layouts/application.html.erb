@@ -22,7 +22,7 @@
 
   <body class="bg-azul flex flex-col h-screen">
 
-    <main class="flex-grow">
+    <main class="flex-grow pt-16">
       <nav class="fixed h-16 top-0 z-50 w-full bg-federalblue text-beige flex justify-around items-center shadow [&>div]:grid [&>div]:grid-flow-col [&>div]:items-center">
 
         <div>
@@ -34,31 +34,30 @@
         </div>
 
         <div>
-          <%= link_to "Login ✅ ", new_user_session_path, class: '' %> |
-          <%= link_to "Signup 🚀", new_user_registration_path, class: '' %>
-        </div>
-      </nav>
-
-
-      <div class="relative flex flex-col items-center text-center">
-        <div class="fixed z-50 top-28">
-          <% if notice.present? %>
-            <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
-          <% end %>
-
-          <% if alert.present? %>
-            <p class="py-2 px-3 bg-red-50 mb-5 text-red-500 font-medium rounded-lg inline-block" id="alert"><%= alert %></p>
-          <% end %>
-
           <%if user_signed_in? %>
-          <%= button_to "logout", destroy_user_session_path, method: :delete  %>
+            <%= button_to "Logout", destroy_user_session_path, method: :delete  %>
+          <% else %>
+            <%= link_to "Login ✅ ", new_user_session_path, class: '' %> |
+              <%= link_to "Signup 🚀", new_user_registration_path, class: '' %>
           <%end%>
         </div>
+      </nav>
+        <% if notice.present? || alert.present? %>
+          <div class="w-full flex justify-center">
+            <% if notice.present? %>
+              <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
+            <% end %>
 
-      </div>
+            <% if alert.present? %>http://localhost:3000/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBFUT09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--470d402efb4806596db6b934e15420000ce8252a/1-surgey.jpg
+              <p class="py-2 px-3 bg-red-50 mb-5 text-red-500 font-medium rounded-lg inline-block" id="alert"><%= alert %></p>
+            <% end %>
+          </div>
+        <% end %>
 
 
-      <div class="pt-24 flex flex-col items-center">
+
+
+      <div class="pt-8 flex flex-col items-center">
         <%= yield %>
       </div>
     </main>
@@ -67,4 +66,27 @@
       <!-- Footer-->
     <%= render partial: 'static_pages/footer' %>
   </body>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vanta@0.5.24/dist/vanta.waves.min.js"></script>
+<script>
+  document.sets
+VANTA.WAVES({
+  el: "#background-wave",
+  mouseControls: true,
+  touchControls: true,
+  gyroControls: false,
+  minHeight: 200.00,
+  minWidth: 200.00,
+  scale: 1.00,
+  scaleMobile: 1.00,
+  color: "#016fb9",
+  shininess: 49.00,
+  waveHeight: 28.50,
+  waveSpeed: 0.40,
+  zoom: 1.01
+})
+</script>
+
 </html>
