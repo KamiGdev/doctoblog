@@ -31,3 +31,9 @@
 
 en:
   hello: "Hello world"
+  pr: "Pr."
+  dr: "Dr."
+  nurse: "Nurse"
+  caregiver: "Caregiver"
+  medical_staff: "Medical Staff"
+  technical_staff: "Technical Staff"

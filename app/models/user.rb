@@ -7,4 +7,5 @@ class User < ApplicationRecord
   attribute :role, :integer, default: 0
   has_many :blog_posts, dependent: :destroy
   has_many :comments, dependent: :destroy
+  enum :job_type, {pr: 0, dr: 1, nurse: 3, caregiver: 4, medical_staff: 5, technical_staff:6 }
 end
