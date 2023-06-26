@@ -1,21 +1,21 @@
-<!-- Footer -->
+<footer class="bg-beige py-5 w-ful">
 
-<%# TO DO %>
-<%# <footer class="bg-beige py-5 w-ful">
+  <section class="grid grid-cols-1 lg:grid-cols-3 justify-between items-center px-20">
 
-  <section class="grid grid-cols-3 items-center">
-
+   <%# 1st block %>
     <div>
-      <p>Blog interne</p>
+      <p class="text-federalblue">Access strictly for staff</p>
     </div>
 
-    <div>
-      <h3 class="text-3xl pb-5 text-center text-federalblue">Retrouvez-nous ici</h3>
+    <%# 2d block %>
+    <div class="justify-center text-center">
+      <h3 class="text-2xl pb-5 text-federalblue">Follow us</h3>
+       <%= image_tag 'logo.png', class: 'w-36' %>
 
       <!-- Social media icons -->
       <div class="mb-5 flex space-x-6 justify-center">
         <a href="#">
-		      <i class="ri-linkedin-box-fill w-6" alt="icône in"></i>
+		      <i class="ri-linkedin-box-fill w-12" alt="icône in"></i>
         </a>
 
         <a href="#">
@@ -27,19 +27,27 @@
         </a>
       </div>
 
-      <hr class="w-36 mx-auto mb-5 bg-federalblue">
-
-      <p class="text-center mt-8 text-base text-gray-400 md:mt-0">&copy; 2022 SEOTOOL, TOUS DROITS RÉSERVÉS</p>
-
-    </div>
-
-
     <div>
-      <a href="mailto:doctoblog@question.net" class="text-federalblue justify-end">doctoblog@question.net</a>
+
+    <%# 3d block %>
+    <div>
+      <a href="mailto:doctoblog@question.net" class="text-federalblue">doctoblog@question.net</a>
     </div>
+
 
   </section>
 
 
-</footer> %>
+    <div>
+      <hr class="w-36 mx-auto mb-5 bg-federalblue">
+      <p class="text-center text-federalblue mt-8 text-base md:mt-0">&copy; 2023 L.A. Hospital, all rights reserved</p>
+    </div>
+
+
+
+
+
+
+
+</footer>
 

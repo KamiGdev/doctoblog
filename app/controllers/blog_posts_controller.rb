@@ -4,11 +4,12 @@ class BlogPostsController < ApplicationController
   before_action :writer_verification, except: %i[ index show ]
   before_action :only_writer, only: %i[ edit update ]
 
-  # GET /blog_posts or /blog_posts.json
-  def index
-    @q = BlogPost.ransack(params[:q])
-    @blog_posts = @q.result(distinct: true).page params[:page]
-  end
+
+#  WE ADD GET /blog_posts or /blog_posts.json
+def index
+  @q = BlogPost.ransack(params[:q])
+  @blog_posts = @q.result(distinct: true).page params[:page]
+end
 
   # WE ADD this : GET /blog_posts/1 or /blog_posts/1.json
   def show
