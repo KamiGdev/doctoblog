@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="h-[100vh]">
+<html lang="en">
   <head>
     <title>Doctoblog<%= yield :title %></title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -20,10 +20,9 @@
     <link href="https://cdn.jsdelivr.net/npm/remixicon@2.2.0/fonts/remixicon.css" rel="stylesheet">
   </head>
 
-  <body class="bg-azul flex flex-col h-[100vh] ">
+  <body class="bg-azul flex flex-col h-screen">
 
-    <main class="flex-grow-1 flex-shrink-0">
-
+    <main class="flex-grow">
       <nav class="fixed h-16 top-0 z-50 w-full bg-federalblue text-beige flex justify-around shadow [&>div]:grid [&>div]:grid-flow-col [&>div]:items-center">
 
         <div>
@@ -62,12 +61,10 @@
       <div class="pt-24">
         <%= yield %>
       </div>
+    </main>
 
 
       <!-- Footer-->
-        <%= render partial: 'static_pages/footer' %>
-
-
-    </main>
+    <%= render partial: 'static_pages/footer' %>
   </body>
 </html>
