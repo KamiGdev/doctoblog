@@ -12,3 +12,6 @@ kami.blog_posts.create title:"test"
 bernard=User.create! email:'bernard.g@doctoblog.com', password:"25c3acb645", firstname:"Bernard",lastname:"Goupillon", role: 1
 
 juliette=User.create! email:'juliette.r@doctoblog.com', password:"dd72e4c1", firstname:"Juliette",lastname:"Richardson", role: 1
+
+
+BlogPost.create! title:"Le blog de Bernard", subtitle:"Le blog de Bernard", body:"Le blog de Bernard", user: bernard 

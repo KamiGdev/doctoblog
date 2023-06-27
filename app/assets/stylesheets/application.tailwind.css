@@ -14,6 +14,7 @@
 
 
 @layer base {
+
   h1 {
       @apply text-5xl;
   }
@@ -34,6 +35,11 @@
       @apply sm:text-sm md:text-base;
   }
 
+}
+
+
+#background-azul {
+  @apply bg-azul;
 }
 
 

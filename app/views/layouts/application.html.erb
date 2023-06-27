@@ -20,7 +20,8 @@
     <link href="https://cdn.jsdelivr.net/npm/remixicon@2.2.0/fonts/remixicon.css" rel="stylesheet">
   </head>
 
-  <body class="bg-azul flex flex-col h-screen">
+  <body class="flex flex-col h-screen" id="<%= current_page?(new_user_registration_path) ? 'background-wave' : 'background-azul' %>">
+
 
     <main class="flex-grow pt-16">
       <nav class="fixed h-16 top-0 z-50 w-full bg-federalblue text-beige flex justify-around items-center shadow [&>div]:grid [&>div]:grid-flow-col [&>div]:items-center">
@@ -68,6 +69,7 @@
   </body>
 
 
+<%# Vanta.js script CDN for background wave %>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/vanta@0.5.24/dist/vanta.waves.min.js"></script>
 <script>
