@@ -1,25 +1,29 @@
-<div class="mx-auto md:w-2/3 w-full flex">
+<div class="mx-auto w-full flex flex-col ">
 
-  <div class="mx-auto py-12">
-    <%= link_to "🔙 Back to posts", blog_posts_path, class: "text-beige font-bold underline" %>
+  <div class=" mx-auto px-6 pb-12">
+    <%= link_to "🔙 Back to posts", blog_posts_path, class: "text-normal text-pink-400 font-bold capitalize tracking-wide md:text-xl" %>
 
-    <%= render @blog_post %>
+      <%= render @blog_post %>
 
-    <div class="container flex flex-col">
-      <h3 class="text-bold">Post your comment</h3>
+
+    <div class="container flex flex-col justify-center items-center"> <%# w-container = definining the block parent at 100% %>
+      <h3 class="text-bold text-center md:text-left text-beige mb-2">Comments</h3>
       <%= render partial: 'comments/form' %>
 
       <%= render @blog_post.comments %>
     </div>
 
+    <div class="flex flex-col justify-center items-center mt-12 sm:flex-row sm:space-x-6 ">
+      <% if current_user.writer? %>
+        <%= link_to 'Edit this blog_post', edit_blog_post_path(@blog_post), class: "flex self-center mt-3 rounded-lg py-3 px-5 bg-gray-100 inline-block hover:bg-beige font-medium" %>
+        <div class="inline-block">
+          <%= button_to 'Destroy this blog_post', blog_post_path(@blog_post), method: :delete, class: "mt-3 rounded-lg py-3 px-5 bg-gray-100 font-medium bg-red-200 hover:text-red-500" %>
+        </div>
+      <% end %>
 
-   <% if current_user.writer? %>
-    <%= link_to 'Edit this blog_post', edit_blog_post_path(@blog_post), class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
-    <div class="inline-block ml-2">
-      <%= button_to 'Destroy this blog_post', blog_post_path(@blog_post), method: :delete, class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 font-medium" %>
+        <%= link_to 'Back to posts', blog_posts_path, class: "mt-3 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium hover:bg-beige" %>
     </div>
-    <% end %>
 
-    <%= link_to 'Back to posts', blog_posts_path, class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
   </div>
+
 </div>

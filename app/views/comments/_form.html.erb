@@ -1,6 +1,7 @@
-<div class="flex flex-col space-x-6">
-    <%= form_for [@blog_post, @new_comment] do |f| %>
-        <%= f.text_area :content %>
+<%= form_for [@blog_post, @new_comment] do |f| %>
+    <div id="comment_content" class="new_comment flex items-stretch mb-6 "> <%# Reference to its parent, the "container", w-100% %>
+        <%= f.text_area :content, placeholder: 'Post your friendly comment here', class: 'w-[30vw] h-28 text-azul rounded-sm rounded-l-md hover:rounded-md' %>
         <%= f.submit "Send" %>
-    <% end %>
-</div>
+    </div>
+<% end %>
+

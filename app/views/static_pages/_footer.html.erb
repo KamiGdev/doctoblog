@@ -1,42 +1,44 @@
-<footer class="bg-beige py-5 w-ful">
+<footer class="bg-federalblue py-2 w-ful">
 
-  <section class="grid grid-cols-3 justify-center items-center px-20">
+  <section class="grid grid-cols-1 gap-5 py-5 justify-center items-center px-20 md:grid-cols-3 ">
 
    <%# 1st block %>
+    <div class="flex flex-col justify-center text-center space-x-5 lg:flex-row">
+      <p class="text-beige">Access strictly for staff</p>
+      <hr class="hidden lg:block lg:w-1 lg:h-6 lg:bg-beige">
+      <a href="mailto:doctoblog@question.net" class="text-beige hover:text-azul">doctoblog@question.net</a>
+    </div>
 
-      <p class="text-federalblue">Access strictly for staff</p>
 
     <%# 2d block %>
     <div class="flex flex-col items-center justify-center text-center">
-      <h3 class="text-2xl pb-5 text-federalblue">Follow us</h3>
-       <%= image_tag 'logo.png', class: 'w-36' %>
+
+       <%= image_tag 'logo.png', class: 'w-28' %>
+       <h3 class="text-xl pb-5 text-beige">Follow us</h3>
 
       <!-- Social media icons -->
-      <div class="mb-5 flex space-x-6 justify-center">
-        <a href="#">
-		      <i class="ri-linkedin-box-fill w-12" alt="icône in"></i>
+      <div class="mb-5 flex space-x-8 justify-center text-beige">
+        <a href="#" class="hover:text-azul">
+          <i class="ri-linkedin-box-fill w-16" alt="icône in"></i>
         </a>
 
-        <a href="#">
-            <i class="ri-facebook-circle-fill w-6" alt="icône fb"></i>
+        <a href="#" class="hover:text-azul">
+          <i class="ri-facebook-circle-fill w-16" alt="icône fb"></i>
         </a>
 
-        <a href="#">
-            <i class="ri-instagram-fill w-6" alt="icône insta"></i>
+        <a href="#" class="hover:text-azul">
+          <i class="ri-instagram-fill w-16" alt="icône insta"></i>
         </a>
       </div>
 
     </div>
-      <a href="mailto:doctoblog@question.net" class="text-federalblue text-center">doctoblog@question.net</a>
+
+    <%# 3d block %>
+      <p class="text-beige text-center">&copy; 2023 L.A. Hospital, all rights reserved, <span class="text-pink-300 font-bold">fictitious website</span>
+      </p>
+
+
   </section>
-
-
-    <div>
-      <hr class="w-36 h-1 mx-auto mb-5 bg-federalblue">
-      <p class="text-center text-federalblue mt-8 text-base md:mt-0">&copy; 2023 L.A. Hospital, all rights reserved</p>
-    </div>
-
-
 
 
 

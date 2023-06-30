@@ -1,14 +1,16 @@
-<div>
-  <small>by <%= comment.user.email %>
+<div class="flex flex-col justify-center px-6 md:w-2/3 md:justify-center"> <%# md:w-full to its parent, the "container" form %>
+  <small class="mt-2">By <%= comment.user.email %>
         <p>Posted <%= time_ago_in_words(comment.created_at) %> ago</p>
   </small>
 
-  <p><%= comment.content %></p>
+  <p class="text-white font-normal mt-3"><%= comment.content %></p>
 
 
   <% if current_user == comment.user || current_user.admin? %>
-      <%= button_to 'Destroy this comment', blog_post_comments_path(comment.blog_post) + "/#{comment.id}", method: :delete, class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 font-medium" %>
+      <%= button_to 'Destroy this comment', blog_post_comments_path(comment.blog_post) + "/#{comment.id}", method: :delete, class: "mt-6 rounded-lg py-3 px-5 bg-gray-100 font-medium text-red-500 hover:bg-beige" %>
   <% end %>
+
+  <hr class="w-1/2 translate-x-1/2 md:translate-x-0 md:w-[40vw] mt-6">
 </div>
 
-<hr>
+

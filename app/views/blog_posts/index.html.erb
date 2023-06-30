@@ -1,21 +1,42 @@
+<%# SEO %>
+<% content_for :meta_tags do %>
+  <meta name="description" content="DoctoBlog posts">
+<% end %>
+
+<% content_for :title do %>
+ Blog
+<% end %>
+
+
+
 <div class="w-full flex flex-col justify-center">
 
-  <div class="flex justify-between items-center">
-    <h1 class="font-bold text-4xl">Blog posts</h1>
-    <%= search_form_for @q do |f| %>
-      <%#= f.label :title_or_subtitle_or_body_cont %>
-      <%= f.search_field :title_or_subtitle_or_body_cont %>
-      <%= f.submit %>
-    <% end %>
+  <div class="flex flex-col px-2 items-center space-y-4 sm:flex-row sm:justify-around sm:px-0 ">
+    <h1 class="font-bold text-3xl sm:text-4xl">Blog posts</h1>
 
+    <%#= See application.tailwind.css file => Flex row in large screen, flex col in small screen %>
+    <div id="blog_post_search">
+      <%= search_form_for @q do |f| %>
+        <%#= f.label :title_or_subtitle_or_body_cont - SEARCH %>
+        <%= f.search_field :title_or_subtitle_or_body_cont, autofocus: true, placeholder: 'Search a post', class: 'text-federalblue' %>
+        <%= f.submit %>
+      <% end %>
+    </div>
+
+    <%#= PAGINATION %>
     <%= paginate @blog_posts %>
+  </div>
 
+
+  <div class="flex flex-col justify-center text-center items-center sm:flex-row sm:justify-end sm:pr-40">
     <%if current_user.writer? %>
-    <%= link_to 'New blog post', new_blog_post_path, class: "rounded-lg py-3 px-5 bg-blue-600 text-white block font-medium" %>
+    <%= link_to 'New blog post', new_blog_post_path, class: "block mt-8 rounded-lg py-3 px-5 font-medium bg-federalblue text-white hover:bg-beige hover:text-federalblue transition duration-500 ease-in-out" %>
     <%end%>
   </div>
+
 
   <div id="blog_posts" class="min-w-full">
     <%= render @blog_posts %>
   </div>
+
 </div>

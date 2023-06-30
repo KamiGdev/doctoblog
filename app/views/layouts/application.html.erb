@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+     <%= yield :meta_tags %>
     <!-- Google fonts- -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -20,7 +21,7 @@
     <link href="https://cdn.jsdelivr.net/npm/remixicon@2.2.0/fonts/remixicon.css" rel="stylesheet">
   </head>
 
-  <body class="flex flex-col h-screen" id="<%= current_page?(new_user_registration_path) ? 'background-wave' : 'background-azul' %>">
+  <body class="flex flex-col h-screen" id="<%= current_page?(new_user_registration_path) ? 'background-wave' : current_page?(new_user_session_path) ? 'background-globe' : 'background-by-default' %>">
 
 
     <main class="flex-grow pt-16">
@@ -31,30 +32,42 @@
         </div>
 
         <div>
-          <span class="hidden sm:block">Welcome on <i>Doctoblog<i>, internal blog of L.A. US Hospital</span>
+          <span class="hidden md:block">Welcome on Doctoblog, internal blog of L.A. US Hospital</span>
         </div>
 
-        <div>
+        <div class="flex flex-row justify-end pr-7 sm:pr-5 md:pr-0">
           <%if user_signed_in? %>
-            <%= button_to "Logout", destroy_user_session_path, method: :delete  %>
-          <% else %>
-            <%= link_to "Login ✅ ", new_user_session_path, class: '' %> |
-              <%= link_to "Signup 🚀", new_user_registration_path, class: '' %>
-          <%end%>
+            <span class="flex space-x-5">
+              <% if current_user.admin? %>
+                <%= link_to "Admin", '/admin', class: 'text-green-400 hover:font-bold' %>
+              <% end %>
+
+              <%= link_to "Your account", edit_user_registration_path, class: 'hover:font-bold' %>
+              <%= button_to "Logout", destroy_user_session_path, method: :delete, class: 'w-4 text-red-500 hover:font-bold' %>
+
+              <% else %>
+                <%= link_to "Login ✅ ", new_user_session_path, class: 'hover:text-pink-300 pr-1 sm:pr-2'%> |
+                <%= link_to "Signup 🚀", new_user_registration_path, class: 'hover:text-pink-300 pl-1 sm:pl-2' %>
+              <%end%>
+            </span>
         </div>
+
       </nav>
+
+        <!-- Flash messages -->
+      <div class="pt-6">
         <% if notice.present? || alert.present? %>
           <div class="w-full flex justify-center">
             <% if notice.present? %>
               <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
             <% end %>
 
-            <% if alert.present? %>http://localhost:3000/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBFUT09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--470d402efb4806596db6b934e15420000ce8252a/1-surgey.jpg
+            <% if alert.present? %>
               <p class="py-2 px-3 bg-red-50 mb-5 text-red-500 font-medium rounded-lg inline-block" id="alert"><%= alert %></p>
             <% end %>
           </div>
         <% end %>
-
+      </div>
 
 
 
@@ -69,7 +82,7 @@
   </body>
 
 
-<%# Vanta.js script CDN for background wave %>
+<%# Vanta.js script CDN for background WAVES %>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/vanta@0.5.24/dist/vanta.waves.min.js"></script>
 <script>
@@ -90,5 +103,27 @@ VANTA.WAVES({
   zoom: 1.01
 })
 </script>
+
+
+<%# Vanta.js script CDN for background GLOBE %>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.globe.min.js"></script>
+<script>
+  document.sets
+VANTA.GLOBE({
+  el: "#background-globe",
+  mouseControls: true,
+  touchControls: true,
+  gyroControls: false,
+  minHeight: 200.00,
+  minWidth: 200.00,
+  color: '#E9EDDE',
+  color2: '#07004D',
+  size: 0.90,
+  backgroundColor: '#016FB9'
+})
+</script>
+
+
 
 </html>

@@ -1,44 +1,55 @@
-<div id="background-wave" class="w-full flex flex-col items-center">
+<%# SEO %>
+<% content_for :meta_tags do %>
+  <meta name="description" content="Sign up to DoctoBlog, L.A. Hospital ">
+<% end %>
 
-  <h2>Sign up</h2>
+<% content_for :title do %>
+  Sign up
+<% end %>
+
+
+<div id="background-wave" class="devise w-full flex flex-col items-center pb-0">
+
+  <h2 class="top-1">Sign up to DoctoBlog</h2>
 
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
     <%= render "devise/shared/error_messages", resource: resource %>
 
 
-    <div class="field">
+    <div class="field mt-8 mb-4">
       <%= f.label :job %><br />
       <%= f.select(  :job,
                     options_for_select(User.job_types.map {|key, value| [I18n.t(key), value]}),
-                    { include_blank: 'Select' }
+                    { include_blank: 'Select' },
+                    autofocus: true
                   ) %>
     </div>
 
 
-
     <div class="field">
       <%= f.label :firstname %><br />
-      <%= f.text_field :firstname, autocomplete: "firstname" %>
+      <%= f.text_field :firstname, autocomplete: "firstname", required: true, pattern: "^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$" %>
     </div>
 
 
     <div class="field">
         <%= f.label :lastname %><br />
-        <%= f.text_field :lastname, autocomplete: "lastname" %>
+        <%= f.text_field :lastname, autocomplete: "lastname", required: true, pattern: "^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$" %>
     </div>
 
 
       <div class="field">
         <%= f.label :email %><br />
-        <%= f.email_field :email, autocomplete: "email" %>
+        <%= f.email_field :email, autocomplete: "email", required: true, type: "email", autocomplete: "email" %>
       </div>
+
 
       <div class="field">
         <%= f.label :password %>
         <% if @minimum_password_length %>
-        <em>(<%= @minimum_password_length %> characters minimum)</em>
+        <em class="flex text-start">(<%= @minimum_password_length %> characters minimum)</em>
         <% end %><br />
-        <%= f.password_field :password, autocomplete: "new-password" %>
+        <%= f.password_field :password, autocomplete: "new-password", required: true %>
       </div>
 
       <div class="field">
