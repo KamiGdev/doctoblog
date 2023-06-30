@@ -9,7 +9,7 @@ class UserResource < Avo::BaseResource
   # Fields generated from the model
   field :email, as: :text
   field :job, as: :select, enum: ::User.job_types
-  field :role, as: :select, enum: ::User.roles
+  field :role, as: :number
   field :firstname, as: :text
   field :lastname, as: :text
   field :password, as: :password
