@@ -1,4 +1,4 @@
-# README
+ ./bin/rails db:drop db:create db:migrate db:seed# README
 
 This README would normally document whatever steps are necessary to get the
 application up and running.
