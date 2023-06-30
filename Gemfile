@@ -81,3 +81,6 @@ gem "devise"
 gem "avo"
 gem 'kaminari'
 gem 'ransack'
+
+gem "dockerfile-rails", ">= 1.5", :group => :development
+gem "aws-sdk-s3"
