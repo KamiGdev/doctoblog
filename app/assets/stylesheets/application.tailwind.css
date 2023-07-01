@@ -107,7 +107,7 @@ label {
 }
 
 
-.field br {
+.field br { /* To resolve unwanted multiple lines on Chrome and Safari on forms */
   @apply hidden;
 }
 
