@@ -41,7 +41,7 @@
 
   <div class="field">
     <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", required: true %>
   </div>
 
 
@@ -52,7 +52,7 @@
 
   <div class="field">
     <%= f.label :password %> <i class="flex text-start">(leave blank if you don't want to change it)</i><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
+    <%= f.password_field :password, autocomplete: "new-password", required: true %>
     <% if @minimum_password_length %>
       <br />
       <em class="flex text-start mb-4"><%= @minimum_password_length %> characters minimum</em>

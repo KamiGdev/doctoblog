@@ -37,7 +37,7 @@
 
 
 
-/* Devise customization forms => for new session and registration views */
+/* Devise customization forms => for new session and new registration views */
 .devise {
   @apply flex flex-col items-center py-12; /* container page */
 }
@@ -76,7 +76,7 @@
 
 
 
-/* Customization form for edit view */
+/* Customization for registration edit view form */
 .edit-form {
   @apply flex flex-col items-center py-12; /* container page */
 }
@@ -91,27 +91,25 @@
 }
 
 
-
-
-/* Customization form for registration + edit views */
 select {
   @apply block shadow rounded-md border border-federalblue outline-none px-3 py-2 mb-4 w-full text-azul focus:ring-azul transition focus:outline-none;
 }
 
 
 
-/* Customization form for all views */
+/* Customization form for ALL DEVISE views */
 .field {
   @apply flex flex-col items-stretch text-center;  /* Label + input */
 }
-
 
 label {
   @apply block text-left text-federalblue font-normal;
 }
 
 
-
+.field br {
+  @apply hidden;
+}
 
 /* Blog Post search view => Customization input + button type input */
 #blog_post_search { /* id DOM for the form */

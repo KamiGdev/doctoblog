@@ -38,24 +38,24 @@
     </div>
 
 
-      <div class="field">
+    <div class="field">
         <%= f.label :email %><br />
         <%= f.email_field :email, autocomplete: "email", required: true, type: "email", autocomplete: "email" %>
-      </div>
+    </div>
 
 
-      <div class="field">
-        <%= f.label :password %>
-        <% if @minimum_password_length %>
-        <em class="flex text-start">(<%= @minimum_password_length %> characters minimum)</em>
-        <% end %><br />
-        <%= f.password_field :password, autocomplete: "new-password", required: true %>
-      </div>
+    <div class="field">
+      <%= f.label :password %>
+      <% if @minimum_password_length %>
+      <em class="flex text-start">(<%= @minimum_password_length %> characters minimum)</em>
+      <% end %><br />
+      <%= f.password_field :password, autocomplete: "new-password", required: true %>
+    </div>
 
-      <div class="field">
-        <%= f.label :password_confirmation %><br />
-        <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-      </div>
+    <div class="field">
+      <%= f.label :password_confirmation %><br />
+      <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+    </div>
 
 
 

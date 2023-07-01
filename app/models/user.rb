@@ -9,6 +9,8 @@ class User < ApplicationRecord
   has_many :comments, dependent: :destroy
   enum :job_type, {pr: 0, dr: 1, nurse: 3, caregiver: 4, medical_staff: 5, technical_staff:6 }
 
+  validates :email, presence: true, format: URI::MailTo::EMAIL_REGEXP
+
   def admin?
     email == 'kami@k.k'
   end
