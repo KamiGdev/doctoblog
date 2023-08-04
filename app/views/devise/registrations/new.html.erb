@@ -28,19 +28,19 @@
 
     <div class="field">
       <%= f.label :firstname %><br />
-      <%= f.text_field :firstname, autocomplete: "firstname", required: true, pattern: "^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$" %>
+      <%= f.text_field :firstname, autocomplete: "firstname", required: true, pattern: "^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$", maxlength: 100 %>
     </div>
 
 
     <div class="field">
         <%= f.label :lastname %><br />
-        <%= f.text_field :lastname, autocomplete: "lastname", required: true, pattern: "^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$" %>
+        <%= f.text_field :lastname, autocomplete: "lastname", required: true, pattern: "^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$", maxlength: 100 %>
     </div>
 
 
     <div class="field">
         <%= f.label :email %><br />
-        <%= f.email_field :email, autocomplete: "email", required: true, type: "email", autocomplete: "email" %>
+        <%= f.email_field :email, autocomplete: "email", required: true, type: "email", autocomplete: "email", maxlength: 254 %>
     </div>
 
 
